@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.Linq;
+﻿using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace PrimeFactorsKata.Tests
@@ -13,7 +10,7 @@ namespace PrimeFactorsKata.Tests
         public void Generate_NumberIsSmallerThan1_ReturnsEmptyList()
         {
             //Arrange
-            int n = 0;
+            const int n = 0;
 
             //Act
             var actualPrimeFactorsList = PrimeFactors.Generate(n);
@@ -26,7 +23,7 @@ namespace PrimeFactorsKata.Tests
         public void Generate_NumberIsPrime_ReturnsNumber()
         {
             //Arrange
-            int n = 11;
+            const int n = 11;
 
             //Act
             var actualPrimeFactorsList = PrimeFactors.Generate(n);
@@ -40,7 +37,7 @@ namespace PrimeFactorsKata.Tests
         public void Generate_NumberHasMorePrimeFactors_ReturnsPrimeFactors()
         {
             //Arrange
-            int n = 10;
+            const int n = 10;
 
             //Act
             var actualPrimeFactorsList = PrimeFactors.Generate(n);
@@ -53,8 +50,14 @@ namespace PrimeFactorsKata.Tests
         [TestMethod]
         public void Generate_NumberWithDuplicateFactors_DuplicateFactorsCollectedAll()
         {
-            var factors = PrimeFactors.Generate(4);
-            CollectionAssert.AreEqual(new List<int>{2,2}, factors);
+            //Arrange
+            const int n = 4;
+
+            //Act
+            var factors = PrimeFactors.Generate(n);
+
+            //Assert
+            CollectionAssert.AreEqual(new List<int> { 2, 2 }, factors);
         }
     }
 }

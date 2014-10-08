@@ -5,36 +5,39 @@ namespace PrimeFactorsKata
 {
     public class PrimeFactors
     {
-        public static List<int> Generate(int n)
+        public static List<int> Generate(int number)
         {
-            if (n <= 0)
+            if (number <= 0)
                 return new List<int>();
 
-            if (n == 1)
+            if (number == 1)
                 return new List<int> { 1 };
 
             List<int> primeFactors = new List<int>();
 
-            for (int i = 2; i <= n; i++)
+            for (var i = 2; i <= number; i++)
             {
-                if (IsPrime(i) && n % i == 0)
+                while (IsPrime(i) && number % i == 0)
+                {
                     primeFactors.Add(i);
+                    number /= i;
+                }
             }
 
             return primeFactors;
         }
 
-        public static bool IsPrime(int i)
+        private static bool IsPrime(int number)
         {
-            if (i < 2)
+            if (number < 2)
                 return false;
 
-            if (i == 2 || i == 3)
+            if (number == 2 || number == 3)
                 return true;
 
-            for (int div = 2; div <= Math.Sqrt(i); div++)
+            for (var divisor = 2; divisor <= Math.Sqrt(number); divisor++)
             {
-                if (i % div == 0)
+                if (number % divisor == 0)
                     return false;
             }
 

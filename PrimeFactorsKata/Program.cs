@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PrimeFactorsKata
 {
@@ -13,7 +11,7 @@ namespace PrimeFactorsKata
     {
         static void Main(string[] args)
         {
-            int n = 30;
+            const int n = -1;
 
             var primeFactors = PrimeFactors.Generate(n);
 
@@ -22,6 +20,7 @@ namespace PrimeFactorsKata
             Console.ReadLine();
         }
 
+        //test
         private static void ConsoleOutput(IEnumerable<int> list)
         {
             foreach (var element in list)
@@ -30,6 +29,5 @@ namespace PrimeFactorsKata
             }
             Console.WriteLine();
         }
-
     }
 }
