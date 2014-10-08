@@ -49,5 +49,12 @@ namespace PrimeFactorsKata.Tests
             Assert.IsTrue(actualPrimeFactorsList.Count == 2);
             CollectionAssert.AreEquivalent(new List<int> { 2, 5 }, actualPrimeFactorsList);
         }
+
+        [TestMethod]
+        public void Generate_NumberWithDuplicateFactors_DuplicateFactorsCollectedAll()
+        {
+            var factors = PrimeFactors.Generate(4);
+            CollectionAssert.AreEqual(new List<int>{2,2}, factors);
+        }
     }
 }
